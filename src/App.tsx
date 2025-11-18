@@ -1,60 +1,78 @@
+import Canvas from "./Canvas";
 import { DynamicStyleComponent } from "./utils";
 
 const App = () => {
     return (
         <>
-            <div
-                style={{
-                    display: "block",
-                    width: "100%",
-                    "background-color": "black",
-                    opacity: "0.3",
-                    position: "fixed",
-                    top: "0",
-                    left: "0",
-                    right: "0",
-                    bottom: "0",
-                    "z-index": "-1",
-                }}
-            />
+            <Canvas />
             <div
                 style={{
                     height: "100vh",
+                    position: "relative",
+                    "min-height": "700px",
                     "justify-content": "center",
                     "align-items": "center",
                     // "text-shadow": "2px 2px 5px black",
                     color: "white",
                 }}
             >
-                <img
+                <DynamicStyleComponent
+                    elementName="img"
                     style={{
                         "border-radius": "50%",
-                        height: "300px",
                         width: "auto",
                         margin: "30px",
                         border: "5px black solid",
                     }}
+                    dynamicStyle={{
+                        height: "300px",
+                        "@media screen and ((max-width: 500px) or (max-height: 850px))":
+                            {
+                                "&": {
+                                    height: "200px",
+                                },
+                            },
+                    }}
                     src="/linkedInPic.jpg"
-                    alt="Me"
+                    alt="Me (Ben Kern)"
                 />
-                <h1
-                    style={{
+                <DynamicStyleComponent
+                    elementName="h1"
+                    dynamicStyle={{
                         "font-size": "150px",
+                        "@media screen and ((max-width: 800px) or (max-height: 950px))":
+                            {
+                                "&": { "font-size": "100px" },
+                            },
+                        "@media screen and ((max-width: 500px) or (max-height: 850px))":
+                            {
+                                "&": { "font-size": "70px" },
+                            },
                     }}
                 >
                     Hello!
-                </h1>
-                <span
-                    style={{
+                </DynamicStyleComponent>
+                <DynamicStyleComponent
+                    elementName="h1"
+                    dynamicStyle={{
                         "font-size": "50px",
+                        "@media screen and ((max-width: 800px) or (max-height: 950px))":
+                            {
+                                "&": { "font-size": "30px" },
+                            },
+                        "@media screen and ((max-width: 500px) or (max-height: 850px))":
+                            {
+                                "&": { "font-size": "20px" },
+                            },
                     }}
                 >
                     I'm Ben!
-                </span>
+                </DynamicStyleComponent>
 
                 <div
                     style={{
                         width: "100%",
+                        height: "100%",
                         position: "absolute",
                         bottom: 0,
                         "align-items": "center",
