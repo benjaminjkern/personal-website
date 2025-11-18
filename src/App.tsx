@@ -72,7 +72,7 @@ const App = () => {
                 <div
                     style={{
                         width: "100%",
-                        height: "100%",
+                        // height: "100%",
                         position: "absolute",
                         bottom: 0,
                         "align-items": "center",
@@ -99,7 +99,7 @@ const App = () => {
                     </div>
                     <DynamicStyleComponent
                         elementName="a"
-                        href="https://benjaminjkern.com/resume"
+                        href="https://benjaminjkern.github.io/resume"
                         style={{
                             "text-decoration": "none",
                             padding: "5px",
